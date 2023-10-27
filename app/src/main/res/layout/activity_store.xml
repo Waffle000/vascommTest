@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.store.StoreActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_oval_white"
+            android:padding="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:src="@drawable/ic_filter"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_white"
+            android:hint="Search"
+            android:drawableRight="@drawable/ic_search"
+            android:drawableTint="@color/primary_color"
+            android:padding="12dp"
+            android:textSize="12dp"
+            android:layout_margin="16dp"
+            android:elevation="8dp"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All Product"
+                        android:background="@drawable/bg_rounded_white"
+                        android:elevation="8dp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Layanan Kesehatan"
+                        android:background="@drawable/bg_rounded_white"
+                        android:elevation="8dp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alat Kesehatan"
+                        android:background="@drawable/bg_rounded_white"
+                        android:elevation="8dp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                android:text="Pilih Tipe Layanan Kesehatan Anda"
+                android:layout_marginTop="24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Satuan"
+                    android:background="@drawable/bg_rounded_white"
+                    android:elevation="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paket pemeriksaan"
+                    android:background="@drawable/bg_rounded_white"
+                    android:elevation="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_service"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
