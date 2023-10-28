@@ -36,6 +36,11 @@ class DashboardActivity : BaseActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun observeData() {
         viewModel.apply {
+            observeSingleError().observe(this@DashboardActivity) {
+                it.getContentIfNotHandled()?.let { error ->
+                    SweetToast.error(this@DashboardActivity, error.msg)
+                }
+            }
             observeUserDataSuccess().observe(this@DashboardActivity) {
                 it.getContentIfNotHandled()?.let {data ->
                     val header: View = binding.navView.getHeaderView(0)

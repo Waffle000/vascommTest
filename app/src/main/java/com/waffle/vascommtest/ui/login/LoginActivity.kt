@@ -48,6 +48,7 @@ class LoginActivity : BaseActivity() {
 
             observeSingleError().observe(this@LoginActivity) {
                 it.getContentIfNotHandled()?.let { error ->
+                    hideLoading()
                     SweetToast.error(this@LoginActivity, error.msg)
                 }
             }

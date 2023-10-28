@@ -41,6 +41,13 @@ class RegisterActivity : BaseActivity() {
                     startActivity(Intent(this@RegisterActivity, DashboardActivity::class.java))
                 }
             }
+
+            observeSingleError().observe(this@RegisterActivity) {
+                it.getContentIfNotHandled()?.let { error ->
+                    hideLoading()
+                    SweetToast.error(this@RegisterActivity, error.msg)
+                }
+            }
         }
     }
 
