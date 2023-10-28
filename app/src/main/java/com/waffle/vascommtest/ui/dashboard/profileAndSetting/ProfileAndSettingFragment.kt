@@ -12,7 +12,7 @@ import com.waffle.vascommtest.base.BaseFragment
 import com.waffle.vascommtest.databinding.FragmentProfileAndSettingBinding
 
 
-class ProfileAndSettingFragment() : BaseFragment() {
+class ProfileAndSettingFragment(private val name: String) : BaseFragment() {
 
     private lateinit var binding : FragmentProfileAndSettingBinding
 
@@ -29,7 +29,7 @@ class ProfileAndSettingFragment() : BaseFragment() {
             tlProfileAndSetting.addTab(tlProfileAndSetting.newTab().setText("Profile"))
             tlProfileAndSetting.addTab(tlProfileAndSetting.newTab().setText("Setting"))
             val fragmentManager: FragmentManager = childFragmentManager
-            adapter = ViewPagerAdapter(fragmentManager, lifecycle)
+            adapter = ViewPagerAdapter(fragmentManager, lifecycle, name)
             vpProfileAndSetting.adapter = adapter
             tlProfileAndSetting.addOnTabSelectedListener(object : OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab) {

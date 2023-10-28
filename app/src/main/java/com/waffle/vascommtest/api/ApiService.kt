@@ -1,6 +1,7 @@
 package com.waffle.vascommtest.api
 
 import com.waffle.vascommtest.data.request.AuthRequest
+import com.waffle.vascommtest.data.response.LoginResponse
 import com.waffle.vascommtest.data.response.RegisterResponse
 import com.waffle.vascommtest.data.response.UserResponse
 import retrofit2.Response
@@ -19,7 +20,7 @@ interface ApiService {
     @POST("login")
     suspend fun postLogin(
         @Body authRequest: AuthRequest
-    ) : Response<String>
+    ) : Response<LoginResponse>
 
     @GET("user/{id}")
     suspend fun getUserData(

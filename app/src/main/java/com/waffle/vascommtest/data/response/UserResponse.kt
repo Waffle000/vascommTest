@@ -17,20 +17,20 @@ data class UserResponse(
 @Parcelize
 data class Data(
 
-	@field:SerializedName("last_name")
-	val lastName: String? = null,
+	@field:SerializedName("color")
+	val color: String? = null,
+
+	@field:SerializedName("year")
+	val year: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
 
-	@field:SerializedName("avatar")
-	val avatar: String? = null,
-
-	@field:SerializedName("first_name")
-	val firstName: String? = null,
-
-	@field:SerializedName("email")
-	val email: String? = null
+	@field:SerializedName("pantone_value")
+	val pantoneValue: String? = null
 ) : Parcelable
 
 @Parcelize

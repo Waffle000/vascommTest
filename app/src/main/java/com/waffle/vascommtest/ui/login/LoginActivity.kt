@@ -1,5 +1,6 @@
 package com.waffle.vascommtest.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.waffle.vascommtest.base.BaseActivity
 import com.waffle.vascommtest.data.request.AuthRequest
 import com.waffle.vascommtest.databinding.ActivityLoginBinding
 import com.waffle.vascommtest.module.SharedPreferences
+import com.waffle.vascommtest.ui.dashboard.DashboardActivity
+import com.waffle.vascommtest.ui.register.RegisterActivity
 import com.waffle.vascommtest.utils.disableScreen
 import com.waffle.vascommtest.utils.enableScreen
 import org.koin.android.ext.android.inject
@@ -32,13 +35,20 @@ class LoginActivity : BaseActivity() {
                     hideLoading()
                     SharedPreferences(this@LoginActivity).apply {
                         isLogin = true
-                        userId = if(data.length == 17) {
-                            data.takeLast(1)
+                        userId = if(data.token?.length == 17) {
+                            data.token?.takeLast(1)?.toInt() ?: 0
                         } else {
-                            data.takeLast(2)
+                            data.token?.takeLast(2)?.toInt() ?: 0
                         }
-                        userToken = data
+                        userToken = data.token ?: ""
                     }
+                    startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+                }
+            }
+
+            observeSingleError().observe(this@LoginActivity) {
+                it.getContentIfNotHandled()?.let { error ->
+                    SweetToast.error(this@LoginActivity, error.msg)
                 }
             }
         }
@@ -56,6 +66,9 @@ class LoginActivity : BaseActivity() {
                     val data = AuthRequest(email = etEmailLogin.text.toString(), password = etPasswordLogin.text.toString())
                     viewModel.postLogin(data)
                 }
+            }
+            btnToRegister.setOnClickListener{
+                startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
             }
         }
     }

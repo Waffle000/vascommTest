@@ -24,9 +24,9 @@ class SharedPreferences(val context: Context) {
         get() = pref.getBoolean(IS_LOGIN, false)
         set(value) = pref.edit().putBoolean(IS_LOGIN,value).apply()
 
-    var userId : String
-        get() = pref.getString(USER_ID, "").toString()
-        set(value) = pref.edit().putString(USER_ID,value).apply()
+    var userId : Int
+        get() = pref.getInt(USER_ID, 0)
+        set(value) = pref.edit().putInt(USER_ID,value).apply()
 
     var userToken : String
         get() = pref.getString(USER_TOKEN,"").toString()

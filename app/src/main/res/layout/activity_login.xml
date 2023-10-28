@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="8dp"
+            app:hintEnabled="false"
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="16dp">
 
@@ -104,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="8dp"
+            app:hintEnabled="false"
             app:endIconMode="password_toggle"
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="16dp">

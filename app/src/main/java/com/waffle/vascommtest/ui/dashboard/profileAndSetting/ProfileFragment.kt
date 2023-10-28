@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.waffle.vascommtest.base.BaseFragment
 import com.waffle.vascommtest.R
+import com.waffle.vascommtest.databinding.FragmentProfileBinding
 
-class ProfileFragment : BaseFragment() {
+class ProfileFragment(private val name : String) : BaseFragment() {
+    private lateinit var binding : FragmentProfileBinding
     override fun onViewCreated(savedInstanceState: Bundle?) {
 
     }
@@ -17,7 +19,7 @@ class ProfileFragment : BaseFragment() {
     }
 
     override fun init() {
-
+        binding.tvNameProfile.text = name
     }
 
     override fun onCreateView(
@@ -25,6 +27,7 @@ class ProfileFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(inflater)
+        return binding.root
     }
 }
